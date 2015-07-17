@@ -1,4 +1,5 @@
 FROM alpine:3.2
+MAINTAINER joff@joff.codes
 
 ENTRYPOINT ["sh"]
 
