@@ -1,6 +1,8 @@
-FROM joffotron/alpine-smelly-baron:3.2
+FROM alpine:3.3
 MAINTAINER joff@joff.codes
-ENTRYPOINT ["/sbin/smell-baron"]
-CMD ["sh"]
 
 RUN apk update && apk add ruby ruby-rdoc ruby-irb ruby-bundler ruby-nokogiri ruby-tzinfo ruby-rake ruby-io-console ruby-bigdecimal
+
+COPY tini-static /sbin/tini
+ENTRYPOINT ["/sbin/tini", "--"]
+CMD ["irb"]
